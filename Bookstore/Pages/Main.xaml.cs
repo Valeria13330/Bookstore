@@ -33,13 +33,7 @@ namespace Bookstore.Pages
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            //BaseConnect.baseConnect.SaveChanges(); //Синхронизировать с сервером
-            ////создаем запись в таблице Users, соответствующую данной                 
-            //Add a1 = new Add();
-            
-            //BaseConnect.baseConnect.Boockstore.Add(a1);
-            //BaseConnect.baseConnect.SaveChanges();
-            //MessageBox.Show("Данные записаны успешно");
+
         }
         private void buttonBascet_Click(object sender, RoutedEventArgs e)
         {
