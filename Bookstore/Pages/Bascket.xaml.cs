@@ -22,11 +22,11 @@ namespace Bookstore.Pages
     /// </summary>
     public partial class Bascket : Page
     {
-        List<Add> add = BaseConnect.baseConnect.Add.ToList();
+        List<Boockstore> boockstores = BaseConnect.baseConnect.Boockstore.ToList();
         public Bascket()
         {
             InitializeComponent();
-            listbox2.ItemsSource = add;
+            listbox2.ItemsSource = boockstores;
         }
 
         private void buttonBack_Click(object sender, RoutedEventArgs e)

@@ -29,7 +29,7 @@ namespace Bookstore
         public MainWindow()
         {
             InitializeComponent();
-            BaseConnect.baseConnect = new Entities5();
+            BaseConnect.baseConnect = new Entities5(); // Создание подключения
             Perexod.frm = frm;
             frm.Navigate(new Main());
         }

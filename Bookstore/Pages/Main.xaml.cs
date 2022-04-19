@@ -24,11 +24,10 @@ namespace Bookstore.Pages
     public partial class Main : Page
     {
         List<Boockstore> boockstores = BaseConnect.baseConnect.Boockstore.ToList();
-        List<Add> add = BaseConnect.baseConnect.Add.ToList();
         public Main()
         {
             InitializeComponent();
-            listbox1.ItemsSource = boockstores;
+            listbox1.ItemsSource = boockstores; //Вывод данных в лист из бд
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
