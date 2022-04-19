@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Bookstore.MainWindow;
 
 namespace Bookstore.Pages
 {
@@ -20,14 +21,10 @@ namespace Bookstore.Pages
     /// Логика взаимодействия для Main.xaml
     /// </summary>
     /// 
-    public static class Perexod
-    {
-        public static Frame frm;
-    }
     public partial class Main : Page
     {
         List<Boockstore> boockstores = BaseConnect.baseConnect.Boockstore.ToList();
-        List<Add> productsType = BaseConnect.baseConnect.Add.ToList();
+        List<Add> add = BaseConnect.baseConnect.Add.ToList();
         public Main()
         {
             InitializeComponent();
@@ -36,14 +33,18 @@ namespace Bookstore.Pages
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            BaseConnect.baseConnect.SaveChanges(); //Синхронизировать с сервером
-            //создаем запись в таблице Users, соответствующую данной                 
-            Boockstore data = new Boockstore();
-            data.Title = Title.Text;
+            //BaseConnect.baseConnect.SaveChanges(); //Синхронизировать с сервером
+            ////создаем запись в таблице Users, соответствующую данной                 
+            //Add a1 = new Add();
+            
+            //BaseConnect.baseConnect.Boockstore.Add(a1);
+            //BaseConnect.baseConnect.SaveChanges();
+            //MessageBox.Show("Данные записаны успешно");
+        }
+        private void buttonBascet_Click(object sender, RoutedEventArgs e)
+        {
+            Perexod.frm.Navigate(new Bascket());
 
-            BaseConnect.baseConnect.Boockstore.Add(data);
-            BaseConnect.baseConnect.SaveChanges();
-            MessageBox.Show("Данные записаны успешно");/
         }
     }
 }

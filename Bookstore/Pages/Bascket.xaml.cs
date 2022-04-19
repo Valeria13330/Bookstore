@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bookstore.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Bookstore.MainWindow;
 
 namespace Bookstore.Pages
 {
@@ -20,9 +22,16 @@ namespace Bookstore.Pages
     /// </summary>
     public partial class Bascket : Page
     {
+        List<Add> add = BaseConnect.baseConnect.Add.ToList();
         public Bascket()
         {
             InitializeComponent();
+            listbox2.ItemsSource = add;
+        }
+
+        private void buttonBack_Click(object sender, RoutedEventArgs e)
+        {
+            Perexod.frm.GoBack();
         }
     }
 }

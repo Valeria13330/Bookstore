@@ -13,10 +13,10 @@ namespace Bookstore
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities3 : DbContext
+    public partial class Entities5 : DbContext
     {
-        public Entities3()
-            : base("name=Entities3")
+        public Entities5()
+            : base("name=Entities5")
         {
         }
     
@@ -25,6 +25,7 @@ namespace Bookstore
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Add> Add { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Boockstore> Boockstore { get; set; }
     }

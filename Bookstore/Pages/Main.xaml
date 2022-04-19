@@ -64,6 +64,16 @@
         <StackPanel Orientation="Horizontal" Margin="0,10">
 
         </StackPanel>
+        <StackPanel Grid.ColumnSpan="1">
+            <Button x:Name="buttonBascet" Click="buttonBascet_Click" Content="Корзина" Margin="50,10,50,0" BorderBrush="{x:Null}" Foreground="White" FontFamily="Monotype Corsiva" FontSize="18">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF00F7" Offset="1"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
         <ListBox x:Name="listbox1" Grid.Row="1" ItemTemplate="{StaticResource BoockstoreInfo}"/>
         
     </Grid>

@@ -8,6 +8,6 @@ namespace Bookstore.Class
 {
     class BaseConnect
     {
-        public static Entities3 baseConnect;
+        public static Entities5 baseConnect;
     }
 }
