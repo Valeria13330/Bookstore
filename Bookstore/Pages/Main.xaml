@@ -65,7 +65,7 @@
 
         </StackPanel>
         <StackPanel Grid.ColumnSpan="1">
-            <Button x:Name="buttonBascet" Click="buttonBascet_Click" Content="Корзина" Margin="50,10,50,0" BorderBrush="{x:Null}" Foreground="White" FontFamily="Monotype Corsiva" FontSize="18">
+            <Button x:Name="buttonBascet" Click="buttonBascet_Click" Content="Корзина" Margin="6,10,50,0" BorderBrush="{x:Null}" Foreground="Black" FontFamily="Monotype Corsiva" FontSize="18">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFFF00F7" Offset="1"/>
