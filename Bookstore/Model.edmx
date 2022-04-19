@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище P_Trio3Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "41P_Trio3.dbo.Add" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Add">
+          <Property Name="ID_boock" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Autor" Type="nvarchar" MaxLength="50" />
+          <Property Name="Query" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Cover" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "41P_Trio3.dbo.Boockstore" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Boockstore">
@@ -13,6 +23,7 @@
             <PropertyRef Name="Title" />
             <PropertyRef Name="Genre" />
             <PropertyRef Name="Autor" />
+            <PropertyRef Name="Price" />
             <PropertyRef Name="Q_store" />
             <PropertyRef Name="Q_stock" />
             <PropertyRef Name="Description" />
@@ -22,18 +33,31 @@
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Genre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Autor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="Q_store" Type="int" Nullable="false" />
           <Property Name="Q_stock" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Cover" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="Хранилище P_Trio3ModelContainer">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Boockstore" EntityType="Self.Boockstore" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Boockstore].[ID] AS [ID], 
     [Boockstore].[Title] AS [Title], 
     [Boockstore].[Genre] AS [Genre], 
     [Boockstore].[Autor] AS [Autor], 
+    [Boockstore].[Price] AS [Price], 
     [Boockstore].[Q_store] AS [Q_store], 
     [Boockstore].[Q_stock] AS [Q_stock], 
     [Boockstore].[Description] AS [Description], 
@@ -45,13 +69,24 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="P_Trio3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Boockstore">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Title" />
             <PropertyRef Name="Genre" />
             <PropertyRef Name="Autor" />
+            <PropertyRef Name="Price" />
             <PropertyRef Name="Q_store" />
             <PropertyRef Name="Q_stock" />
             <PropertyRef Name="Description" />
@@ -61,12 +96,14 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Genre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Autor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Q_store" Type="Int32" Nullable="false" />
           <Property Name="Q_stock" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Cover" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Boockstore" EntityType="Self.Boockstore" />
         </EntityContainer>
       </Schema>
@@ -74,14 +111,26 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище P_Trio3ModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities3">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Boockstore">
-            <EntityTypeMapping TypeName="P_Trio3Model.Boockstore">
+            <EntityTypeMapping TypeName="Model.Boockstore">
               <MappingFragment StoreEntitySet="Boockstore">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Genre" ColumnName="Genre" />
                 <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Q_store" ColumnName="Q_store" />
                 <ScalarProperty Name="Q_stock" ColumnName="Q_stock" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

@@ -12,16 +12,12 @@ namespace Bookstore
     using System;
     using System.Collections.Generic;
     
-    public partial class Boockstore
+    public partial class sysdiagrams
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public string Genre { get; set; }
-        public string Autor { get; set; }
-        public int Price { get; set; }
-        public int Q_store { get; set; }
-        public int Q_stock { get; set; }
-        public string Description { get; set; }
-        public string Cover { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

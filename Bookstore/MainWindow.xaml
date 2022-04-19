@@ -9,14 +9,25 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Заголовок" FontSize="35"/>
+        <StackPanel Grid.ColumnSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Книжный магазин" FontFamily="Monotype Corsiva" FontSize="35"/>
         </StackPanel>
-        <Frame x:Name="frm" Grid.Row="2" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <Frame x:Name="frm" Grid.Row="2" NavigationUIVisibility="Hidden" Grid.ColumnSpan="1" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="1">
+            <Button x:Name="buttonBascet" Click="buttonBascet_Click" Content="Корзина" Margin="50,10,50,0" BorderBrush="{x:Null}" Foreground="White" FontFamily="Monotype Corsiva" FontSize="18">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF00F7" Offset="1"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>

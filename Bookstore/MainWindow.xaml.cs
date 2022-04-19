@@ -29,9 +29,14 @@ namespace Bookstore
         public MainWindow()
         {
             InitializeComponent();
-            BaseConnect.baseConnect = new Entities();
+            BaseConnect.baseConnect = new Entities3();
             Perexod.frm = frm;
             frm.Navigate(new Main());
+        }
+
+        private void buttonBascet_Click(object sender, RoutedEventArgs e)
+        {
+            Perexod.frm.Navigate(new Bascket());
         }
     }
 }
