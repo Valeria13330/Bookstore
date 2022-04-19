@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bookstore"
         mc:Ignorable="d"
-        Title="Boockstore" Height="450" Width="800">
+        Title="Boockstore" Height="450" Width="800" MinWidth="1000" MinHeight="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>

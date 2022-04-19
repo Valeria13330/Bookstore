@@ -28,6 +28,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Цена: " FontSize="18" FontFamily="Monotype Corsiva"/>
                             <TextBlock Text="{Binding Price}" FontSize="18" FontFamily="Monotype Corsiva"/>
+                            <TextBlock Text=" руб." FontSize="18" FontFamily="Monotype Corsiva"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Количество в магазине: " FontSize="18" FontFamily="Monotype Corsiva"/>
@@ -77,7 +78,7 @@
                     <TextBlock Text="Количество выбранных книг: " FontSize="18" FontFamily="Monotype Corsiva" Margin="10,0,0,0"/>
                     <TextBlock Text="Стоимость покупки: " FontSize="18" FontFamily="Monotype Corsiva" Margin="10,0,0,0"/>
                     <TextBlock Text="Размер скидки: 5%" FontSize="18" FontFamily="Monotype Corsiva" Margin="10,0,0,0"/>
-                </StackPanel>
+            </StackPanel>
             </Border>
         </StackPanel>
         

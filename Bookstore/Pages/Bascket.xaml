@@ -29,6 +29,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Цена: " FontSize="18" FontFamily="Monotype Corsiva"/>
                             <TextBlock Text="{Binding Price}" FontSize="18" FontFamily="Monotype Corsiva"/>
+                            <TextBlock Text=" руб." FontSize="18" FontFamily="Monotype Corsiva"/>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
